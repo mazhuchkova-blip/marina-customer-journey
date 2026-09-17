@@ -91,7 +91,7 @@
     .example-intro { margin:0 0 52px; }
     .cases { display:grid; grid-template-columns:1.1fr .76fr 1.12fr; grid-auto-rows:minmax(175px, auto); gap:16px; }
     .case { position:relative; display:flex; flex-direction:column; justify-content:space-between; min-height:205px; padding:25px 26px 28px; overflow:hidden; border:1px solid var(--line); border-radius:5px; background:var(--card); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-    .case::after { position:absolute; right:-24px; bottom:-51px; color:var(--blush); font-family:var(--serif); font-size:145px; font-weight:600; line-height:1; content:attr(data-case); pointer-events:none; }
+    .case::after { position:absolute; top:17px; right:22px; color:var(--blush); font-family:var(--serif); font-size:48px; font-weight:500; line-height:1; content:attr(data-case); pointer-events:none; }
     .case:hover { z-index:2; border-color:#c3ab9c; box-shadow:0 14px 28px rgba(74,48,40,.08); transform:translateY(-5px); }
     .case:nth-child(1) { grid-row:span 2; min-height:395px; background:#f4ece5; }.case:nth-child(2) { margin-top:48px; }.case:nth-child(3) { grid-row:span 2; margin-bottom:35px; }.case:nth-child(4) { margin-top:-15px; }.case:nth-child(5) { grid-column:2 / 4; width:66%; justify-self:end; }
     .case-step { position:relative; z-index:1; color:var(--taupe); font-size:9px; font-weight:700; letter-spacing:.14em; }
