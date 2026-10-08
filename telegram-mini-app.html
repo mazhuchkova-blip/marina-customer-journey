@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Марина, разберись — мини-приложение</title>
   <style>
-    :root{--paper:#f6f2eb;--ink:#302923;--muted:#756b63;--line:#d9d0c6;--accent:#b56f52;--accent-dark:#8d503a;--card:#fffdfa}
-    *{box-sizing:border-box}html{background:var(--paper)}body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45;background-color:var(--paper);background-image:linear-gradient(rgba(216,207,197,.52) 1px,transparent 1px),linear-gradient(90deg,rgba(216,207,197,.52) 1px,transparent 1px);background-size:64px 64px}
-    .app{max-width:620px;min-height:100svh;margin:auto;padding:22px 18px 30px;display:flex;flex-direction:column}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;animation:rise .7s ease both}.brand{font-family:Georgia,serif;font-size:20px}.dot{color:var(--accent)}.tag{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-    main{flex:1;animation:rise .8s .08s ease both}.eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 13px}.eyebrow::before{width:27px;height:1px;background:var(--accent);content:""}.title{font:500 clamp(42px,11vw,68px)/.97 Georgia,serif;letter-spacing:-.05em;margin:0 0 18px}.lead{font-size:18px;max-width:500px;color:#4e443d;margin:0 0 28px}.hint{font-size:14px;color:var(--muted);margin:0 0 16px}
-    .choices{display:grid;gap:10px}.choice{width:100%;text-align:left;padding:17px 18px;border:1px solid var(--line);border-radius:5px;background:rgba(255,253,250,.88);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}.choice:nth-child(1){animation:rise .65s .18s ease both}.choice:nth-child(2){animation:rise .65s .25s ease both}.choice:nth-child(3){animation:rise .65s .32s ease both}.choice:nth-child(4){animation:rise .65s .39s ease both}.choice:hover,.choice:focus-visible{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 24px rgba(74,48,40,.08)}.choice b{display:block;font-family:Georgia,serif;font-size:21px;font-weight:500;margin-bottom:3px}.choice span{display:block;color:var(--muted);font-size:14px}
+    :root{--paper:#faf7f2;--ink:#302923;--muted:#675950;--line:#c89c84;--accent:#ad674b;--accent-dark:#824630;--card:#fffdfa}
+    *{box-sizing:border-box}html{background:var(--paper)}body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.5;background-color:var(--paper);background-image:linear-gradient(rgba(216,207,197,.52) 1px,transparent 1px),linear-gradient(90deg,rgba(216,207,197,.52) 1px,transparent 1px);background-size:64px 64px}
+    .app{max-width:620px;min-height:100svh;margin:auto;padding:22px 18px 102px;display:flex;flex-direction:column}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;animation:rise .7s ease both}.brand{font-family:Georgia,serif;font-size:21px}.dot{color:var(--accent)}.tag{font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+    main{flex:1;animation:rise .8s .08s ease both}.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 13px}.eyebrow::before{width:27px;height:2px;background:var(--accent);content:""}.title{font:500 clamp(42px,11vw,68px)/.97 Georgia,serif;letter-spacing:-.05em;margin:0 0 18px}.lead{font-size:20px;max-width:500px;color:#4e443d;margin:0 0 28px}.hint{font-size:15px;color:var(--muted);margin:0 0 16px}.section{margin-top:48px;padding:30px 20px 0;border-top:2px solid var(--line)}.section h2{font:500 36px/1.02 Georgia,serif;letter-spacing:-.035em;margin:0 0 12px}.section p{color:#4e443d;font-size:17px;margin:0 0 18px}.site-card{padding:22px;border:2px solid var(--line);border-radius:7px;background:rgba(255,250,245,.9)}.site-card strong{display:block;font:500 27px/1.05 Georgia,serif;margin-bottom:8px}.site-card a{display:inline-flex;margin-top:5px;color:var(--accent-dark);font-size:17px;font-weight:700;text-decoration:none}.nav-pills{position:fixed;z-index:5;bottom:14px;left:50%;width:min(584px,calc(100% - 28px));transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:6px;border:2px solid var(--line);border-radius:9px;background:rgba(255,250,245,.95);box-shadow:0 12px 30px rgba(74,48,40,.14);backdrop-filter:blur(12px)}.nav-pills a{padding:11px 6px;border-radius:5px;color:var(--ink);font-size:14px;font-weight:700;text-align:center;text-decoration:none}.nav-pills a:hover,.nav-pills a:focus-visible{background:var(--accent);color:#fff}
+    .choices{display:grid;gap:10px}.choice{width:100%;text-align:left;padding:18px 19px;border:2px solid var(--line);border-radius:7px;background:rgba(255,250,245,.9);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}.choice:nth-child(1){animation:rise .65s .18s ease both}.choice:nth-child(2){animation:rise .65s .25s ease both}.choice:nth-child(3){animation:rise .65s .32s ease both}.choice:nth-child(4){animation:rise .65s .39s ease both}.choice:hover,.choice:focus-visible{border-color:var(--accent-dark);transform:translateY(-2px);box-shadow:0 10px 24px rgba(74,48,40,.1)}.choice b{display:block;font-family:Georgia,serif;font-size:23px;font-weight:500;margin-bottom:4px}.choice span{display:block;color:var(--muted);font-size:16px}
     .result{display:none;margin-top:22px;padding:22px;border-radius:5px;background:var(--ink);color:var(--paper)}.result.show{display:block}.result h2{font:500 30px/1.05 Georgia,serif;margin:0 0 10px}.result p{margin:0 0 18px;color:#e9e0d7;font-size:15px}.result .button{display:inline-flex;text-decoration:none;background:var(--accent);color:#fff;padding:12px 16px;border-radius:4px;font-weight:700}.result .button:hover{background:var(--accent-dark)}.again{display:block;margin-top:14px;border:0;background:transparent;color:#dacfc4;padding:0;text-decoration:underline;cursor:pointer;font:inherit}
-    footer{padding-top:42px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:42px;animation:rise .8s .45s ease both}.footer-link{color:inherit;text-decoration:none}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    footer{padding-top:42px;color:var(--muted);font-size:15px;display:flex;justify-content:space-between;gap:12px;border-top:2px solid var(--line);margin-top:42px;animation:rise .8s .45s ease both}.footer-link{color:inherit;text-decoration:none}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .nav-pills a{display:flex;align-items:center;justify-content:center;gap:5px;min-height:50px;padding:8px 7px;border:1px solid transparent;line-height:1.1;cursor:pointer;transition:.2s}.nav-pills a::before{color:var(--accent);font-size:11px;font-weight:800}.nav-pills a:nth-child(1)::before{content:"01"}.nav-pills a:nth-child(2)::before{content:"02"}.nav-pills a:nth-child(3)::before{content:"03"}.nav-pills a:hover,.nav-pills a:focus-visible,.nav-pills a.active{border-color:var(--accent);background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(173,103,75,.25)}.nav-pills a.active::before,.nav-pills a:hover::before{color:#fff}
     @media (max-width:430px){header{margin-bottom:36px}.title{font-size:48px}.lead{font-size:17px}.app{padding-left:16px;padding-right:16px}}
   </style>
 </head>
@@ -23,20 +24,29 @@
       <p class="eyebrow">Марина, разберись</p>
       <h1 class="title">Есть задача? Разберёмся вместе.</h1>
       <p class="lead">Можно прийти с идеей, непонятной настройкой или тем, что перестало работать. Я помогу понять, что делать, и доведу до результата.</p>
-      <p class="hint">Выберите, что сейчас ближе. Точные термины не нужны.</p>
+      <section class="section" id="site">
+        <h2>Сайт — отдельно</h2>
+        <p>На сайте можно спокойно посмотреть, чем я занимаюсь, какие задачи беру и какие проекты уже сделала.</p>
+        <div class="site-card"><strong>Марина Жучкова — разберусь с цифровой задачей</strong><p>Сайты, домены, Telegram‑приложения и помощь по шагам.</p><a href="https://mazhuchkova-blip.github.io/marina-customer-journey/">Перейти на сайт →</a></div>
+      </section>
+      <section class="section" id="help">
+        <h2>С чем можно прийти</h2>
+        <p class="hint">Выберите, что сейчас ближе. Точные термины не нужны.</p>
       <div class="choices" id="choices">
         <button class="choice" data-key="site"><b>Сайт или страница</b><span>Собрать, оформить и опубликовать по вашей ссылке</span></button>
         <button class="choice" data-key="telegram"><b>Мини‑приложение в Telegram</b><span>Придумать механику, собрать и передать вам</span></button>
         <button class="choice" data-key="settings"><b>Что-то не работает</b><span>Найти причину, настроить и проверить результат</span></button>
         <button class="choice" data-key="together"><b>Не знаю, с чего начать</b><span>Разобраться вместе и выбрать простой путь</span></button>
-      </div>
+      </div></section>
       <section class="result" id="result" aria-live="polite">
         <h2 id="result-title"></h2><p id="result-text"></p>
-        <a class="button" id="write" href="https://t.me/marinaz_va">Обсудить мою задачу в Telegram →</a>
+        <a class="button" id="write" href="https://t.me/marinaz_va?text=Хочу%20обсудить%20цифровую%20задачу">Написать Марине в Telegram →</a>
         <button class="again" id="again" type="button">Выбрать другой вариант</button>
       </section>
+    <section class="section" id="formats"><h2>Как я могу помочь</h2><p>Можно отдать задачу целиком, сделать её вместе со мной или идти по шагам на созвоне. Выбираем формат под вашу ситуацию.</p></section>
     </main>
-    <footer><span>Сделаю сама, вместе или покажу по шагам.</span><a class="footer-link" href="https://mazhuchkova-blip.github.io/marina-customer-journey/">Сайт →</a></footer>
+    <footer><span>Разберёмся без лишних терминов.</span><a class="footer-link" href="https://t.me/marinaz_va?text=Хочу%20обсудить%20цифровую%20задачу">Написать →</a></footer>
+    <nav class="nav-pills" aria-label="Разделы приложения"><a class="active" href="#site">Мой сайт</a><a href="#help">Задачи</a><a href="#formats">Как помогаю</a></nav>
   </div>
   <script>
     const answers={
@@ -48,6 +58,7 @@
     const choices=document.getElementById('choices'),result=document.getElementById('result'),title=document.getElementById('result-title'),text=document.getElementById('result-text');
     choices.addEventListener('click',e=>{const button=e.target.closest('.choice');if(!button)return;const [t,p]=answers[button.dataset.key];title.textContent=t;text.textContent=p;choices.style.display='none';result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'start'});});
     document.getElementById('again').addEventListener('click',()=>{result.classList.remove('show');choices.style.display='grid';choices.querySelector('button').focus();});
+    document.querySelectorAll('.nav-pills a').forEach(link=>link.addEventListener('click',()=>{document.querySelectorAll('.nav-pills a').forEach(item=>item.classList.remove('active'));link.classList.add('active');}));
   </script>
 </body>
 </html>
