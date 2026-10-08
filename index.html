@@ -1,451 +1,605 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Марина Жучкова — Марина, разберись</title>
-<meta name="description" content="Подключу домен, соберу сайт, запущу приложение в Telegram. Сделаю за вас или покажу, как сделать самому.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#f8f5ef;--wash:#efe8df;--card:#fcfaf6;--ink:#30241f;--cocoa:#4a3028;--taupe:#6a584d;--line:#d8cfc5;--terra:#b66f52;--blush:#ead8cd;--serif:"Cormorant Garamond",Georgia,serif;--sans:Manrope,Arial,sans-serif;--max:1320px}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--paper)}
-body{margin:0;min-width:320px;overflow-x:hidden;background:var(--paper);color:var(--ink);font:400 18px/1.7 var(--sans);text-rendering:optimizeLegibility}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--terra);outline-offset:4px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-.shell{width:min(calc(100% - 64px),var(--max));margin:auto}
-.section{position:relative;padding:clamp(72px,9vw,128px) 0;scroll-margin-top:92px}
-.eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 23px;color:var(--taupe);font-size:13px;font-weight:700;letter-spacing:.08em;line-height:1.3}
-.eyebrow:before{width:28px;height:1px;background:var(--terra);content:""}
-.display{margin:0;font-family:var(--serif);font-size:clamp(46px,5.4vw,76px);font-weight:500;letter-spacing:-.045em;line-height:.96}
-.body-copy{max-width:640px;color:#4f4038;font-size:18px;line-height:1.76}
-.body-copy p{margin:0 0 1.05em}
-.button{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:52px;padding:12px 22px;border:1px solid var(--terra);border-radius:3px;background:var(--terra);color:#fffaf4;font-size:15px;font-weight:700;letter-spacing:.02em;transition:.2s}
-.button:hover{background:#965337;border-color:#965337;transform:translateY(-2px)}
-.button--quiet{background:transparent;color:var(--cocoa);border-color:var(--cocoa)}
-.button--quiet:hover{background:var(--cocoa);color:var(--paper);border-color:var(--cocoa)}
-.text-link{border-bottom:1px solid var(--terra);color:var(--cocoa);font-size:15px;font-weight:700}
-.skip-link{position:fixed;z-index:100;left:16px;top:-80px;padding:10px 15px;border-radius:4px;background:var(--cocoa);color:var(--paper)}
-.skip-link:focus{top:16px}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Марина Жучкова — разберусь с цифровой задачей</title>
+  <meta name="description" content="Помогаю экспертам, творческим людям и небольшим командам разобраться с сайтом, Telegram-приложением и другими цифровыми задачами — сделать, запустить и передать работающий результат.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:#f8f5ef;
+      --wash:#eee7de;
+      --card:#fcfaf6;
+      --ink:#30241f;
+      --cocoa:#4a3028;
+      --taupe:#6a584d;
+      --line:#d8cfc5;
+      --terra:#b66f52;
+      --terra-dark:#965337;
+      --blush:#ead8cd;
+      --serif:"Cormorant Garamond",Georgia,serif;
+      --sans:Manrope,Arial,sans-serif;
+      --max:1280px;
+    }
 
-/* шапка */
-.site-header{position:fixed;z-index:50;top:0;width:100%;padding:23px 0;transition:.25s}
-.site-header.is-scrolled{padding:11px 0;background:rgba(248,245,239,.94);box-shadow:0 1px 0 rgba(74,48,40,.12);backdrop-filter:blur(12px)}
-.header-row{display:flex;align-items:center;gap:22px}
-.brand{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.04em;line-height:1}
-.brand:after{display:inline-block;width:7px;height:7px;margin:0 0 5px 8px;border-radius:50%;background:var(--terra);content:""}
-.nav{display:flex;align-items:center;gap:20px;margin-left:auto}
-.nav a{color:#4f4038;font-size:15px;font-weight:700;white-space:nowrap}
-.nav a:hover{color:var(--terra)}
-.header-cta{min-height:44px;padding:9px 15px;font-size:13px;white-space:nowrap}
-.menu-toggle{display:none;width:43px;height:43px;padding:0;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink);cursor:pointer}
-.menu-toggle span,.menu-toggle:before,.menu-toggle:after{position:absolute;width:17px;height:1px;margin-left:-8px;background:currentColor;content:""}
-.menu-toggle:before{transform:translateY(-6px)}
-.menu-toggle:after{transform:translateY(6px)}
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; background:var(--paper); }
+    body { margin:0; min-width:320px; overflow-x:hidden; background:var(--paper); color:var(--ink); font:400 18px/1.7 var(--sans); text-rendering:optimizeLegibility; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    :focus-visible { outline:3px solid var(--terra); outline-offset:4px; }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
 
-/* первый экран */
-.hero{min-height:760px;padding-top:clamp(150px,16vw,205px);padding-bottom:clamp(72px,8vw,110px);overflow:hidden;background-color:var(--paper);background-image:linear-gradient(rgba(216,207,197,.52) 1px,transparent 1px),linear-gradient(90deg,rgba(216,207,197,.52) 1px,transparent 1px);background-size:64px 64px}
-.hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:clamp(45px,8vw,130px)}
-.hero h1{max-width:650px;font-size:clamp(60px,7vw,104px)}
-.hero-sub{max-width:520px;margin:27px 0 20px;font-family:var(--serif);font-size:clamp(28px,2.4vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.08}
-.hero .body-copy{margin:0 0 22px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px}
-.hero-benefits{display:grid;gap:9px;margin:26px 0 0;padding:0;list-style:none;color:#4f4038;font-size:16px}
-.hero-benefits li{display:flex;gap:10px;align-items:flex-start}
-.hero-benefits li:before{margin-top:3px;color:var(--terra);font-weight:700;content:"✓"}
+    .shell { width:min(calc(100% - 64px),var(--max)); margin:auto; }
+    .section { position:relative; padding:clamp(72px,9vw,124px) 0; scroll-margin-top:84px; }
+    .eyebrow { display:flex; align-items:center; gap:12px; margin:0 0 22px; color:var(--taupe); font-size:13px; font-weight:700; letter-spacing:.08em; line-height:1.3; text-transform:uppercase; }
+    .eyebrow::before { width:28px; height:1px; background:var(--terra); content:""; }
+    .display { margin:0; font-family:var(--serif); font-size:clamp(46px,5.3vw,76px); font-weight:500; letter-spacing:-.045em; line-height:.98; }
+    .body-copy { max-width:670px; color:#4f4038; font-size:18px; line-height:1.76; }
+    .body-copy p { margin:0 0 1.05em; }
+    .section-head { display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(46px,9vw,140px); align-items:end; margin-bottom:52px; }
+    .section-head .body-copy { margin-left:auto; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:13px; min-height:52px; padding:12px 22px; border:1px solid var(--terra); border-radius:3px; background:var(--terra); color:#fffaf4; font-size:15px; font-weight:700; letter-spacing:.02em; transition:.2s; }
+    .button:hover { border-color:var(--terra-dark); background:var(--terra-dark); transform:translateY(-2px); }
+    .text-link { border-bottom:1px solid var(--terra); color:var(--cocoa); font-size:15px; font-weight:700; }
+    .skip-link { position:fixed; z-index:100; left:16px; top:-80px; padding:10px 15px; border-radius:4px; background:var(--cocoa); color:var(--paper); }
+    .skip-link:focus { top:16px; }
 
-/* маршрут */
-.route-figure{position:relative;margin:0;padding:40px 20px 30px}
-.route-kicker{display:block;margin-bottom:35px;color:var(--taupe);font-size:12px;font-weight:700;letter-spacing:.08em}
-.route-track{position:relative;display:grid;grid-template-columns:repeat(5,1fr)}
-.route-track:before{position:absolute;top:8px;left:10%;width:80%;height:1px;background:var(--line);content:""}
-.route-track:after{position:absolute;top:8px;left:30%;width:40%;height:1px;background:var(--cocoa);content:""}
-.route-step{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
-.route-dot{width:18px;height:18px;margin-bottom:15px;border:4px solid var(--paper);border-radius:50%;background:var(--card);box-shadow:0 0 0 1px var(--taupe)}
-.route-step.mine .route-dot{background:var(--terra);box-shadow:0 0 0 1px var(--terra),0 0 0 7px rgba(182,111,82,.14)}
-.route-label{max-width:110px;color:#4f4038;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.3}
-.route-note{margin:34px 0 0 auto;margin-right:auto;max-width:330px;padding-left:16px;border-left:1px solid var(--terra);color:#884c35;font-size:15px;line-height:1.5}
+    .site-header { position:fixed; z-index:50; top:0; width:100%; padding:22px 0; transition:.25s; }
+    .site-header.is-scrolled { padding:11px 0; background:rgba(248,245,239,.94); box-shadow:0 1px 0 rgba(74,48,40,.12); backdrop-filter:blur(12px); }
+    .header-row { display:flex; align-items:center; gap:22px; }
+    .brand { font-family:var(--serif); font-size:30px; font-weight:600; letter-spacing:-.04em; line-height:1; }
+    .brand::after { display:inline-block; width:7px; height:7px; margin:0 0 5px 8px; border-radius:50%; background:var(--terra); content:""; }
+    .nav { display:flex; align-items:center; gap:20px; margin-left:auto; }
+    .nav a { color:#4f4038; font-size:14px; font-weight:700; white-space:nowrap; }
+    .nav a:hover { color:var(--terra); }
+    .header-cta { min-height:44px; padding:9px 15px; font-size:13px; }
+    .nav .button { color:#fffaf4; }
+    .menu-toggle { display:none; width:43px; height:43px; padding:0; border:1px solid var(--line); border-radius:3px; background:var(--card); color:var(--ink); cursor:pointer; }
+    .menu-toggle span,.menu-toggle::before,.menu-toggle::after { position:absolute; width:17px; height:1px; margin-left:-8px; background:currentColor; content:""; }
+    .menu-toggle::before { transform:translateY(-6px); }
+    .menu-toggle::after { transform:translateY(6px); }
 
-/* для кого */
-.section-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,10vw,150px);align-items:end;margin-bottom:54px}
-.section-head .body-copy{margin-left:auto}
-.who{background:var(--wash)}
-.who-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,10vw,150px);align-items:start}
-.pull-quote{margin:0;max-width:560px;padding:25px 0 0 28px;border-top:1px solid var(--line);color:var(--cocoa);font-family:var(--serif);font-size:clamp(30px,3vw,44px);letter-spacing:-.035em;line-height:1.08}
+    .hero { min-height:760px; padding-top:clamp(145px,15vw,200px); padding-bottom:clamp(72px,8vw,108px); overflow:hidden; background-color:var(--paper); background-image:linear-gradient(rgba(216,207,197,.52) 1px,transparent 1px),linear-gradient(90deg,rgba(216,207,197,.52) 1px,transparent 1px); background-size:64px 64px; }
+    .hero-grid { display:grid; grid-template-columns:1.08fr .92fr; align-items:center; gap:clamp(50px,8vw,124px); }
+    .hero h1 { max-width:730px; font-size:clamp(58px,7vw,100px); }
+    .hero-sub { max-width:690px; margin:28px 0 19px; font-family:var(--serif); font-size:clamp(28px,2.45vw,39px); font-weight:500; letter-spacing:-.03em; line-height:1.1; }
+    .hero .body-copy { margin-bottom:27px; }
+    .hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:29px; }
+    .promise { position:relative; padding:40px 35px 34px; border:1px solid var(--line); border-radius:5px; background:rgba(252,250,246,.9); box-shadow:0 22px 50px rgba(74,48,40,.08); }
+    .promise::before { position:absolute; top:-13px; left:28px; padding:3px 10px; background:var(--terra); color:white; font-size:11px; font-weight:700; letter-spacing:.09em; content:"ЧТО БУДЕТ В ИТОГЕ"; }
+    .promise ol { display:grid; gap:0; margin:0; padding:0; list-style:none; counter-reset:promise; }
+    .promise li { position:relative; padding:20px 0 20px 48px; border-bottom:1px solid var(--line); color:#4f4038; font-size:16px; counter-increment:promise; }
+    .promise li:last-child { border-bottom:0; }
+    .promise li::before { position:absolute; left:0; top:20px; color:var(--terra); font-size:12px; font-weight:700; letter-spacing:.08em; content:"0" counter(promise); }
+    .promise b { display:block; margin-bottom:2px; color:var(--cocoa); font-family:var(--serif); font-size:27px; font-weight:500; letter-spacing:-.03em; line-height:1.15; }
 
-/* режимы */
-.packages{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.package{display:flex;flex-direction:column;padding:30px 27px 27px;border:1px solid var(--line);border-radius:5px;background:var(--card)}
-.package--main{border-color:#cfae9d;background:#fffaf5;box-shadow:0 16px 32px rgba(74,48,40,.06)}
-.package-no{display:block;margin-bottom:12px;color:var(--terra);font-size:13px;font-weight:700;letter-spacing:.08em}
-.package h3{margin:0 0 15px;font-family:var(--serif);font-size:38px;font-weight:500;letter-spacing:-.04em;line-height:1}
-.package p{margin:0 0 14px;color:#4f4038;font-size:16px;line-height:1.68}
-.package-price{margin-top:auto!important;padding-top:18px;border-top:1px solid var(--line);color:var(--terra)!important;font-family:var(--serif);font-size:38px!important;font-weight:500;letter-spacing:-.04em;line-height:1!important}
-.package-price small{display:block;margin-top:8px;color:var(--taupe);font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0}
+    .situations { background:var(--wash); }
+    .situation-layout { display:grid; grid-template-columns:.84fr 1.16fr; gap:clamp(40px,8vw,112px); align-items:start; }
+    .situation-tabs { display:grid; gap:10px; }
+    .situation-tab { width:100%; padding:20px 22px; border:1px solid var(--line); border-radius:4px; background:rgba(252,250,246,.68); color:var(--cocoa); text-align:left; cursor:pointer; transition:.2s; }
+    .situation-tab:hover { border-color:var(--terra); }
+    .situation-tab[aria-selected="true"] { border-color:var(--terra); background:var(--card); box-shadow:0 10px 24px rgba(74,48,40,.06); }
+    .situation-tab b { display:block; font-family:var(--serif); font-size:28px; font-weight:500; letter-spacing:-.03em; line-height:1.08; }
+    .situation-tab span { display:block; margin-top:4px; color:var(--taupe); font-size:14px; }
+    .situation-panel { min-height:360px; padding:42px; border:1px solid var(--line); border-radius:5px; background:var(--card); }
+    .situation-panel[hidden] { display:none; }
+    .situation-panel h3 { max-width:600px; margin:0 0 20px; font-family:var(--serif); font-size:clamp(36px,4vw,52px); font-weight:500; letter-spacing:-.04em; line-height:1; }
+    .situation-panel p { max-width:680px; margin:0 0 16px; color:#4f4038; font-size:17px; }
+    .panel-result { margin-top:27px!important; padding:18px 0 0 20px; border-top:1px solid var(--line); border-left:3px solid var(--terra); color:var(--cocoa)!important; font-weight:600; }
 
-/* каталог */
-.catalog{background:#f4ece5}
-.rows{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
-.rows li{display:grid;grid-template-columns:1fr auto;gap:8px 40px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
-.rows b{display:block;margin-bottom:5px;color:var(--cocoa);font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.035em;line-height:1.05}
-.rows span{display:block;max-width:640px;color:#4f4038;font-size:16px;line-height:1.65}
-.rows .cost{color:var(--terra);font-family:var(--serif);font-size:34px;font-weight:500;letter-spacing:-.04em;white-space:nowrap}
-.prices-note{max-width:780px;margin:25px 0 0;color:#4f4038;font-size:16px}
+    .modes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .mode-card { display:flex; flex-direction:column; min-height:330px; padding:31px 27px 27px; border:1px solid var(--line); border-radius:5px; background:var(--card); }
+    .mode-card:nth-child(2) { border-color:#cfae9d; background:#fffaf5; box-shadow:0 16px 32px rgba(74,48,40,.06); }
+    .mode-no { margin-bottom:15px; color:var(--terra); font-size:12px; font-weight:700; letter-spacing:.09em; }
+    .mode-card h3 { margin:0 0 17px; font-family:var(--serif); font-size:36px; font-weight:500; letter-spacing:-.04em; line-height:1; }
+    .mode-card p { margin:0 0 13px; color:#4f4038; font-size:16px; line-height:1.65; }
+    .mode-result { margin-top:auto!important; padding-top:18px; border-top:1px solid var(--line); color:var(--cocoa)!important; font-weight:700; }
 
-/* как работаю */
-.stage-list{display:grid;grid-template-columns:1fr 1fr;gap:0 45px;margin:0;padding:0;list-style:none;counter-reset:stage}
-.stage-list li{position:relative;padding:22px 0 22px 50px;border-top:1px solid var(--line);color:#4f4038;font-size:16px;line-height:1.55;counter-increment:stage}
-.stage-list li:before{position:absolute;left:0;top:25px;color:var(--terra);font-size:13px;font-weight:700;letter-spacing:.08em;content:"0" counter(stage)}
-.stage-list b{display:block;margin-bottom:4px;color:var(--cocoa);font-family:var(--serif);font-size:29px;font-weight:500;letter-spacing:-.035em;line-height:1.1}
+    .tasks { background:#f4ece5; }
+    .task-grid { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+    .task-card { min-height:220px; padding:29px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(252,250,246,.45); }
+    .task-card span { display:block; margin-bottom:13px; color:var(--terra); font-size:12px; font-weight:700; letter-spacing:.09em; }
+    .task-card h3 { margin:0 0 13px; font-family:var(--serif); font-size:32px; font-weight:500; letter-spacing:-.035em; line-height:1.06; }
+    .task-card p { margin:0; color:#4f4038; font-size:16px; line-height:1.65; }
+    .task-note { max-width:800px; margin:28px 0 0; color:#4f4038; font-size:16px; }
 
-/* кейс */
-.case-card{position:relative;max-width:900px;padding:34px;border:1px solid var(--line);border-radius:5px;background:var(--card)}
-.case-card h3{margin:0 0 14px;font-family:var(--serif);font-size:40px;font-weight:500;letter-spacing:-.04em;line-height:1.04}
-.case-card p{max-width:700px;margin:0 0 14px;color:#4f4038;font-size:17px;line-height:1.7}
-.case-card .soon{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--taupe);font-size:15px}
+    .how-list { display:grid; grid-template-columns:repeat(4,1fr); margin:0; padding:0; list-style:none; counter-reset:step; }
+    .how-list li { position:relative; min-height:230px; padding:27px 25px 24px; border-top:1px solid var(--line); border-right:1px solid var(--line); color:#4f4038; font-size:15px; line-height:1.6; counter-increment:step; }
+    .how-list li:last-child { border-right:0; }
+    .how-list li::before { display:block; margin-bottom:38px; color:var(--terra); font-size:12px; font-weight:700; letter-spacing:.09em; content:"0" counter(step); }
+    .how-list b { display:block; margin-bottom:9px; color:var(--cocoa); font-family:var(--serif); font-size:29px; font-weight:500; letter-spacing:-.035em; line-height:1.05; }
 
-/* диагностика */
-.audit{color:#f7eee4;background:var(--cocoa)}
-.audit .eyebrow{color:#e0cdbf}
-.audit-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,9vw,140px);align-items:center}
-.audit .display{color:#fbf3ea;margin-bottom:28px}
-.audit .body-copy{color:#eadfd4;margin-bottom:26px}
-.audit .text-link{color:#fbf3ea}
-.audit-prices{margin:0;padding:0;list-style:none;border-top:1px solid rgba(247,238,228,.28)}
-.audit-prices li{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(247,238,228,.28);color:#eadfd4;font-size:16px}
-.audit-prices strong{color:#fbf3ea;font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.04em;white-space:nowrap}
+    .portfolio { background:var(--wash); }
+    .case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .case-card { display:flex; flex-direction:column; padding:34px; border:1px solid var(--line); border-radius:5px; background:var(--card); }
+    .case-tag { color:var(--terra); font-size:12px; font-weight:700; letter-spacing:.09em; }
+    .case-card h3 { margin:14px 0 20px; font-family:var(--serif); font-size:40px; font-weight:500; letter-spacing:-.04em; line-height:1.03; }
+    .case-fact { display:grid; grid-template-columns:105px 1fr; gap:18px; padding:15px 0; border-top:1px solid var(--line); }
+    .case-fact b { color:var(--taupe); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+    .case-fact p { margin:0; color:#4f4038; font-size:15px; line-height:1.62; }
+    .case-link { align-self:flex-start; margin-top:auto; padding-top:20px; border-bottom:1px solid var(--terra); color:var(--cocoa); font-size:14px; font-weight:700; }
 
-/* вопросы */
-.faq{background:var(--wash)}
-.faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,10vw,155px);align-items:start}
-.faq-list{border-top:1px solid var(--line)}
-.faq-list details{border-bottom:1px solid var(--line)}
-.faq-list summary{padding:19px 0;color:var(--cocoa);font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.03em;line-height:1.15;cursor:pointer;list-style:none}
-.faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary:after{float:right;color:var(--terra);font-family:var(--sans);font-size:22px;content:"+"}
-.faq-list details[open] summary:after{content:"–"}
-.faq-list p{max-width:790px;margin:0;padding:0 35px 20px 0;color:#4f4038;font-size:16px;line-height:1.7}
+    .about-grid { display:grid; grid-template-columns:.78fr 1.22fr; gap:clamp(48px,10vw,150px); align-items:start; }
+    .about-mark { min-height:390px; display:flex; align-items:center; justify-content:center; padding:30px; background:var(--cocoa); color:#f7eee4; font-family:var(--serif); font-size:clamp(52px,7vw,92px); letter-spacing:-.06em; line-height:.82; text-align:center; }
+    .about-copy h2 { margin-bottom:30px; }
+    .about-principles { display:grid; gap:12px; margin:28px 0 0; padding:0; list-style:none; }
+    .about-principles li { padding:14px 0 14px 25px; border-top:1px solid var(--line); color:#4f4038; font-size:16px; }
+    .about-principles li::before { margin-left:-25px; margin-right:12px; color:var(--terra); content:"✓"; }
 
-/* контакты */
-.contacts{background:var(--paper)}
-.contact-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(45px,10vw,145px);align-items:end}
-.contact-grid .body-copy{margin-top:27px}
-.contact-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.contact-list a{min-height:112px;padding:20px;border:1px solid var(--line);border-radius:5px;background:var(--card);color:#4f4038;font-size:17px;transition:.2s}
-.contact-list a:hover{border-color:var(--terra);transform:translateY(-2px)}
-.contact-list .main{border-color:#cfae9d;background:#fffaf5}
-.contact-list b{display:block;margin-bottom:11px;color:var(--taupe);font-size:12px;letter-spacing:.08em}
+    .faq { background:#f4ece5; }
+    .faq-grid { display:grid; grid-template-columns:.78fr 1.22fr; gap:clamp(48px,9vw,140px); align-items:start; }
+    .faq-list { border-top:1px solid var(--line); }
+    .faq-list details { border-bottom:1px solid var(--line); }
+    .faq-list summary { padding:20px 0; color:var(--cocoa); font-family:var(--serif); font-size:27px; font-weight:500; letter-spacing:-.03em; line-height:1.15; cursor:pointer; list-style:none; }
+    .faq-list summary::-webkit-details-marker { display:none; }
+    .faq-list summary::after { float:right; color:var(--terra); font-family:var(--sans); font-size:22px; content:"+"; }
+    .faq-list details[open] summary::after { content:"–"; }
+    .faq-list p { max-width:780px; margin:0; padding:0 35px 21px 0; color:#4f4038; font-size:16px; line-height:1.7; }
 
-footer{padding:28px 0 34px;background:var(--wash)}
-.footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;padding-top:22px;border-top:1px solid var(--line);color:#5d4c42;font-size:14px;font-weight:600;letter-spacing:.02em}
-.footer-row a:hover{color:var(--terra)}
+    .contacts { color:#f7eee4; background:var(--cocoa); }
+    .contact-grid { display:grid; grid-template-columns:.95fr 1.05fr; gap:clamp(44px,9vw,130px); align-items:end; }
+    .contacts .eyebrow { color:#e0cdbf; }
+    .contacts .display { color:#fbf3ea; }
+    .contacts .body-copy { margin-top:27px; color:#eadfd4; }
+    .contact-list { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .contact-list a { min-height:112px; padding:20px; border:1px solid rgba(247,238,228,.28); border-radius:5px; color:#eadfd4; font-size:16px; transition:.2s; }
+    .contact-list a:hover { border-color:#f7eee4; transform:translateY(-2px); }
+    .contact-list .main { background:#fbf3ea; color:var(--cocoa); }
+    .contact-list b { display:block; margin-bottom:11px; font-size:11px; letter-spacing:.09em; }
 
-@media(max-width:1100px){.nav{gap:13px}.nav a{font-size:13px}.header-cta{font-size:12px}}
-@media(max-width:900px){
-  .shell{width:min(calc(100% - 42px),var(--max))}
-  .hero-grid,.section-head,.who-grid,.audit-grid,.faq-grid,.contact-grid{grid-template-columns:1fr}
-  .hero{min-height:0}
-  .section-head{gap:20px;margin-bottom:40px}
-  .section-head .body-copy{margin-left:0}
-  .who-grid{gap:34px}
-  .packages{grid-template-columns:1fr}
-  .stage-list{gap:0 30px}
-  .contact-list{max-width:680px}
-}
-@media(max-width:680px){
-  body{font-size:16px}
-  .shell{width:min(calc(100% - 32px),var(--max))}
-  .site-header{padding:15px 0}
-  .site-header.is-scrolled{padding:9px 0}
-  .brand{font-size:27px}
-  .nav{position:absolute;top:calc(100% + 7px);left:16px;right:16px;display:grid;gap:0;margin:0;padding:10px 16px;border:1px solid var(--line);border-radius:4px;background:rgba(252,250,246,.98);box-shadow:0 12px 25px rgba(74,48,40,.08);opacity:0;pointer-events:none;transform:translateY(-8px);transition:.2s}
-  .nav.is-open{opacity:1;pointer-events:auto;transform:none}
-  .nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:16px}
-  .nav a:last-child{border-bottom:0}
-  .header-cta{display:none}
-  .menu-toggle{position:relative;display:block;margin-left:auto}
-  .hero{padding-top:118px;background-size:42px 42px}
-  .hero h1{font-size:clamp(50px,15vw,68px)}
-  .hero-sub{margin:21px 0 17px;font-size:28px}
-  .hero .body-copy,.body-copy{font-size:16px}
-  .hero-actions{align-items:flex-start;flex-direction:column}
-  .route-figure{padding:30px 0 10px}
-  .route-label{max-width:72px;font-size:11px;overflow-wrap:anywhere}
-  .route-note{margin-top:28px;font-size:14px}
-  .display{font-size:clamp(42px,13vw,60px)}
-  .package{padding:25px 22px}
-  .package h3{font-size:34px}
-  .rows li{grid-template-columns:1fr;gap:6px}
-  .rows b{font-size:29px}
-  .rows .cost{font-size:30px}
-  .stage-list{grid-template-columns:1fr}
-  .case-card{padding:25px 22px}
-  .case-card h3{font-size:34px}
-  .audit-prices li{flex-direction:column;gap:4px}
-  .faq-list summary{font-size:25px}
-  .contact-list{grid-template-columns:1fr}
-  .contact-list a{min-height:0}
-  .footer-row{flex-direction:column;font-size:13px}
-}
-</style>
+    footer { padding:28px 0 34px; background:var(--wash); }
+    .footer-row { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px 28px; padding-top:22px; border-top:1px solid var(--line); color:#5d4c42; font-size:14px; font-weight:600; }
+    .footer-row a:hover { color:var(--terra); }
+
+    @media (max-width:1050px) {
+      .nav { gap:13px; }
+      .nav a { font-size:12px; }
+      .hero-grid,.section-head,.situation-layout,.about-grid,.faq-grid,.contact-grid { grid-template-columns:1fr; }
+      .hero { min-height:0; }
+      .promise { max-width:720px; }
+      .section-head { gap:20px; margin-bottom:40px; }
+      .section-head .body-copy { margin-left:0; }
+      .modes-grid { grid-template-columns:1fr; }
+      .mode-card { min-height:0; }
+      .case-grid { grid-template-columns:1fr 1fr; }
+      .how-list { grid-template-columns:1fr 1fr; }
+      .how-list li:nth-child(2) { border-right:0; }
+      .how-list li:nth-child(3),.how-list li:nth-child(4) { border-top:0; }
+      .about-mark { min-height:290px; }
+      .contact-list { max-width:720px; }
+    }
+
+    @media (max-width:720px) {
+      body { font-size:16px; }
+      .shell { width:min(calc(100% - 32px),var(--max)); }
+      .site-header { padding:15px 0; }
+      .site-header.is-scrolled { padding:9px 0; }
+      .brand { font-size:27px; }
+      .nav { position:absolute; top:calc(100% + 7px); left:16px; right:16px; display:grid; gap:0; margin:0; padding:10px 16px; border:1px solid var(--line); border-radius:4px; background:rgba(252,250,246,.98); box-shadow:0 12px 25px rgba(74,48,40,.08); opacity:0; pointer-events:none; transform:translateY(-8px); transition:.2s; }
+      .nav.is-open { opacity:1; pointer-events:auto; transform:none; }
+      .nav a { padding:12px 0; border-bottom:1px solid var(--line); font-size:16px; }
+      .nav a:last-child { border-bottom:0; }
+      .header-cta { display:none; }
+      .menu-toggle { position:relative; display:block; margin-left:auto; }
+      .hero { padding-top:118px; background-size:42px 42px; }
+      .hero h1 { font-size:clamp(48px,14.5vw,66px); }
+      .hero-sub { font-size:28px; }
+      .hero .body-copy,.body-copy { font-size:16px; }
+      .hero-actions { align-items:flex-start; flex-direction:column; }
+      .display { font-size:clamp(41px,13vw,58px); }
+      .promise { padding:34px 22px 22px; }
+      .situation-panel { min-height:0; padding:28px 23px; }
+      .situation-tab b { font-size:25px; }
+      .task-grid,.case-grid,.contact-list { grid-template-columns:1fr; }
+      .how-list { grid-template-columns:1fr; }
+      .how-list li { min-height:0; border-right:0; }
+      .how-list li:nth-child(2),.how-list li:nth-child(3),.how-list li:nth-child(4) { border-top:0; }
+      .case-card { padding:27px 22px; }
+      .case-card h3 { font-size:34px; }
+      .case-fact { grid-template-columns:1fr; gap:5px; }
+      .about-mark { min-height:240px; }
+      .faq-list summary { font-size:24px; }
+      .footer-row { flex-direction:column; font-size:13px; }
+    }
+  </style>
 </head>
 <body>
-<a class="skip-link" href="#content">Перейти к содержанию</a>
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
 
-<header class="site-header" id="header">
-  <div class="shell header-row">
-    <a class="brand" href="#top">Марина Жучкова</a>
-    <nav class="nav" id="nav" aria-label="Разделы страницы">
-      <a href="#prices">Цены</a>
-      <a href="#how">Как работаю</a>
-      <a href="#case">Кейс</a>
-      <a href="#faq">Вопросы</a>
-      <a href="#contacts">Контакты</a>
-      <a class="button header-cta" href="https://t.me/marinaz_va">Написать задачу</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span></button>
-  </div>
-</header>
+  <header class="site-header" id="header">
+    <div class="shell header-row">
+      <a class="brand" href="#top">Марина Жучкова</a>
+      <nav class="nav" id="nav" aria-label="Разделы страницы">
+        <a href="#situations">С чем прийти</a>
+        <a href="#modes">Как помогу</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#about">Обо мне</a>
+        <a href="#faq">Вопросы</a>
+        <a class="button header-cta" href="https://t.me/marinaz_va">Описать задачу</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </header>
 
-<main id="content">
+  <main id="content">
+    <section class="section hero" id="top">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Технический помощник для ваших идей</p>
+          <h1 class="display">Разберусь с цифровой задачей и доведу до результата</h1>
+          <p class="hero-sub">Когда нужно сделать, но некогда становиться техническим специалистом.</p>
+          <div class="body-copy">
+            <p>Помогаю экспертам, творческим людям и небольшим командам запустить сайт, Telegram-приложение или другой цифровой инструмент. Могу сделать сама, разобраться вместе с вами или показать всё по шагам.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="https://t.me/marinaz_va">Рассказать, что нужно <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#portfolio">Посмотреть примеры</a>
+          </div>
+        </div>
 
-<section class="section hero" id="top">
-  <div class="shell hero-grid">
-    <div>
-      <p class="eyebrow">ДОМЕНЫ, САЙТЫ, ПРИЛОЖЕНИЯ В TELEGRAM</p>
-      <h1 class="display">Марина, разберись</h1>
-      <p class="hero-sub">Есть задача? Доведу её до рабочего результата.</p>
-      <div class="body-copy"><p>Подключу домен, соберу сайт, запущу приложение в Telegram. Сделаю за вас или покажу, как сделать самому.</p></div>
-      <ul class="hero-benefits">
-        <li>Домен открывает ваш сайт</li>
-        <li>Сайт опубликован и работает по ссылке</li>
-        <li>Приложение запущено в Telegram</li>
-        <li>Вы понимаете, как всё устроено</li>
-      </ul>
-      <div class="hero-actions">
-        <a class="button" href="https://t.me/marinaz_va">Написать задачу <span aria-hidden="true">→</span></a>
-        <a class="text-link" href="#prices">Посмотреть цены</a>
+        <aside class="promise" aria-label="Что будет в итоге">
+          <ol>
+            <li><b>Поймём задачу</b>Без требования заранее знать правильные термины.</li>
+            <li><b>Выберем разумный способ</b>Без сложной разработки там, где она не нужна.</li>
+            <li><b>Запустим</b>Не макет и не инструкция, а работающий результат.</li>
+            <li><b>Передам вам</b>Аккаунты и доступы остаются у вас.</li>
+          </ol>
+        </aside>
       </div>
-    </div>
+    </section>
 
-    <figure class="route-figure" aria-label="От задачи до клиентов">
-      <span class="route-kicker">ОТ ЗАДАЧИ ДО КЛИЕНТОВ</span>
-      <div class="route-track">
-        <div class="route-step"><span class="route-dot"></span><span class="route-label">Ваша задача</span></div>
-        <div class="route-step mine"><span class="route-dot"></span><span class="route-label">Домен</span></div>
-        <div class="route-step mine"><span class="route-dot"></span><span class="route-label">Сайт</span></div>
-        <div class="route-step mine"><span class="route-dot"></span><span class="route-label">Приложение в Telegram</span></div>
-        <div class="route-step"><span class="route-dot"></span><span class="route-label">Клиенты пишут вам</span></div>
+    <section class="section situations" id="situations">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">С какой задачей прийти</p>
+            <h2 class="display">Можно не знать, как это называется</h2>
+          </div>
+          <div class="body-copy">
+            <p>Опишите ситуацию своими словами. Я помогу отделить то, что действительно нужно, от лишнего и предложу понятный следующий шаг.</p>
+          </div>
+        </div>
+
+        <div class="situation-layout">
+          <div class="situation-tabs" role="tablist" aria-label="Выберите свою ситуацию">
+            <button class="situation-tab" id="tab-idea" role="tab" aria-selected="true" aria-controls="panel-idea" type="button">
+              <b>Есть идея, не знаю, как сделать</b>
+              <span>Нужен понятный путь от задумки до запуска</span>
+            </button>
+            <button class="situation-tab" id="tab-stuck" role="tab" aria-selected="false" aria-controls="panel-stuck" type="button">
+              <b>Начали и застряли</b>
+              <span>Что-то не работает или непонятно, куда идти дальше</span>
+            </button>
+            <button class="situation-tab" id="tab-done" role="tab" aria-selected="false" aria-controls="panel-done" type="button">
+              <b>Нужно сделать за меня</b>
+              <span>Вы хотите получить готовый результат</span>
+            </button>
+            <button class="situation-tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="panel-learn" type="button">
+              <b>Хочу сделать сам</b>
+              <span>Но рядом нужен человек, который объяснит</span>
+            </button>
+          </div>
+
+          <div>
+            <article class="situation-panel" id="panel-idea" role="tabpanel" aria-labelledby="tab-idea">
+              <h3>Переведу идею в конкретную задачу</h3>
+              <p>Разберём, что должно работать в итоге, кому это нужно и без чего можно обойтись на первом этапе. Я предложу подходящий способ и объясню его обычными словами.</p>
+              <p class="panel-result">Результат: понятный план и первый работающий вариант, а не бесконечный выбор сервисов.</p>
+            </article>
+            <article class="situation-panel" id="panel-stuck" role="tabpanel" aria-labelledby="tab-stuck" hidden>
+              <h3>Найду, где всё остановилось</h3>
+              <p>Посмотрю, что уже сделано, проверю настройки и помогу продолжить с текущего места. Если выбранный путь слишком сложный, предложу более простой.</p>
+              <p class="panel-result">Результат: задача снова движется, а вы понимаете, что было не так.</p>
+            </article>
+            <article class="situation-panel" id="panel-done" role="tabpanel" aria-labelledby="tab-done" hidden>
+              <h3>Сама разберусь и соберу</h3>
+              <p>Уточню результат, согласую объём и возьму техническую часть на себя. Покажу промежуточный вариант, внесу согласованные правки и передам готовое.</p>
+              <p class="panel-result">Результат: всё открывается и работает, а доступы оформлены на вас.</p>
+            </article>
+            <article class="situation-panel" id="panel-learn" role="tabpanel" aria-labelledby="tab-learn" hidden>
+              <h3>Покажу по шагам на вашей задаче</h3>
+              <p>На встрече вы делаете сами, а я объясняю, куда нажать, что выбрать и почему. Не читаю общую лекцию — вместе доводим до результата конкретную задачу.</p>
+              <p class="panel-result">Результат: готовая работа и понимание, как вы сможете управлять ею дальше.</p>
+            </article>
+          </div>
+        </div>
       </div>
-      <p class="route-note">Три средних шага берусь пройти за вас или вместе с вами.</p>
-    </figure>
-  </div>
-</section>
+    </section>
 
-<section class="section who">
-  <div class="shell who-grid">
-    <div>
-      <p class="eyebrow">ДЛЯ КОГО</p>
-      <h2 class="display">Дело идёт, а техника ждёт</h2>
-    </div>
-    <div>
-      <div class="body-copy">
-        <p>Эксперты, мастера и небольшие бизнесы. Клиенты есть, а на домены, сайты и настройки не хватает времени или сил.</p>
+    <section class="section" id="modes">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Как могу помочь</p>
+            <h2 class="display">Выберите, сколько хотите делать сами</h2>
+          </div>
+          <div class="body-copy">
+            <p>Один и тот же вопрос можно решить по-разному. Формат зависит от вашей задачи, времени и желания разбираться.</p>
+          </div>
+        </div>
+        <div class="modes-grid">
+          <article class="mode-card">
+            <span class="mode-no">01</span>
+            <h3>Сделаю за вас</h3>
+            <p>Вы рассказываете, что должно получиться. Я уточняю детали, разбираюсь, делаю и передаю.</p>
+            <p class="mode-result">Подходит, если нужен готовый результат.</p>
+          </article>
+          <article class="mode-card">
+            <span class="mode-no">02</span>
+            <h3>Сделаем вместе</h3>
+            <p>Делим работу: часть беру на себя, часть проходим вместе. Вы участвуете там, где это действительно нужно.</p>
+            <p class="mode-result">Подходит, если хотите влиять на процесс и понимать его.</p>
+          </article>
+          <article class="mode-card">
+            <span class="mode-no">03</span>
+            <h3>Покажу по шагам</h3>
+            <p>Вы работаете на своём компьютере, а я веду вас от первого действия до готового результата.</p>
+            <p class="mode-result">Подходит, если хотите научиться делать сами.</p>
+          </article>
+        </div>
       </div>
-      <p class="pull-quote">Задача звучит просто: «Марина, разберись».</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="modes">
-  <div class="shell">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">СПОСОБЫ РАБОТЫ</p>
-        <h2 class="display">Два способа работать</h2>
+    <section class="section tasks" id="tasks">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Примеры задач</p>
+            <h2 class="display">С чем уже можно обратиться</h2>
+          </div>
+          <div class="body-copy">
+            <p>Это не закрытый каталог. Если вашей задачи здесь нет, всё равно напишите: я посмотрю и честно скажу, смогу ли помочь.</p>
+          </div>
+        </div>
+        <div class="task-grid">
+          <article class="task-card">
+            <span>САЙТ</span>
+            <h3>Собрать и опубликовать страницу</h3>
+            <p>Сайт-визитка, страница услуги или небольшой лендинг, который открывается по вашей ссылке и работает с телефона.</p>
+          </article>
+          <article class="task-card">
+            <span>TELEGRAM</span>
+            <h3>Сделаю для вас мини-приложение в Telegram</h3>
+            <p>Разберусь, что оно должно делать, соберу первый работающий вариант, проверю и передам вам проект и доступы.</p>
+          </article>
+          <article class="task-card">
+            <span>НАСТРОЙКИ</span>
+            <h3>Подключить домен или сервис</h3>
+            <p>Разберусь с настройками, свяжу нужные части и проверю результат на практике.</p>
+          </article>
+          <article class="task-card">
+            <span>НЕПОНЯТНАЯ ЗАДАЧА</span>
+            <h3>Понять, что вообще нужно делать</h3>
+            <p>Если вы пока знаете только желаемый результат, начнём с него. Подберу решение без лишней сложности.</p>
+          </article>
+        </div>
+        <p class="task-note">Стоимость и срок называю после того, как пойму задачу и ожидаемый результат. До начала работы фиксируем, что именно я делаю.</p>
       </div>
-      <div class="body-copy"><p>Отдайте задачу целиком или сделайте её вместе со мной. Выбирайте, что удобнее.</p></div>
-    </div>
-    <div class="packages">
-      <article class="package package--main">
-        <span class="package-no">ВАРИАНТ 1</span>
-        <h3>Сделаю за вас</h3>
-        <p>Вы описываете задачу, я уточняю детали и называю цену. Дальше делаю сама и отдаю работающий результат.</p>
-        <p>Домен и аккаунты оформляются на вас.</p>
-        <p class="package-price">Цена по задаче<small>Список и цены ниже</small></p>
-      </article>
-      <article class="package">
-        <span class="package-no">ВАРИАНТ 2</span>
-        <h3>Разберёмся вместе</h3>
-        <p>Созвон на 60–90 минут. Вы делаете сами, а я показываю, куда нажать и что выбрать. После встречи у вас готовый результат и понимание, как он работает.</p>
-        <p class="package-price">1 500–2 500 ₽<small>одна задача за встречу</small></p>
-      </article>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section catalog" id="prices">
-  <div class="shell">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">ЧТО ДЕЛАЮ</p>
-        <h2 class="display">Задачи и цены</h2>
+    <section class="section" id="how">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Как проходит работа</p>
+            <h2 class="display">От сообщения до запуска</h2>
+          </div>
+          <div class="body-copy">
+            <p>Вам не нужно составлять техническое задание. Начать можно с обычного сообщения: что хотите получить и что уже пробовали.</p>
+          </div>
+        </div>
+        <ol class="how-list">
+          <li><b>Вы описываете ситуацию</b>Своими словами, без терминов и готового решения.</li>
+          <li><b>Я разбираюсь</b>Задаю вопросы, проверяю варианты и предлагаю следующий шаг.</li>
+          <li><b>Делаем</b>Я работаю сама, вместе с вами или показываю по шагам.</li>
+          <li><b>Проверяем и передаём</b>Убеждаемся, что всё работает. Доступы и результат остаются у вас.</li>
+        </ol>
       </div>
-      <div class="body-copy"><p>Цены указаны для типовых задач. Точную стоимость называю, когда пойму, что нужно именно вам.</p></div>
-    </div>
-    <ul class="rows">
-      <li>
-        <div><b>Подключение домена</b><span>Привяжу домен к сайту на GitHub Pages или к другому сервису, проверю, что адрес открывается.</span></div>
-        <div class="cost">1 500–3 000 ₽</div>
-      </li>
-      <li>
-        <div><b>Сайт-визитка на GitHub</b><span>Страница о вас и ваших услугах с контактами. Собираю с помощью нейросети, публикую бесплатно.</span></div>
-        <div class="cost">7 000–15 000 ₽</div>
-      </li>
-      <li>
-        <div><b>Одностраничник или лендинг</b><span>Страница с описанием услуг, ценами, ответами на вопросы и кнопками связи.</span></div>
-        <div class="cost">15 000–25 000 ₽</div>
-      </li>
-      <li>
-        <div><b>Приложение в Telegram</b><span>Мини-приложение для вашего бизнеса или проекта. Цена фиксированная: после уточнения задачи согласуем, что входит, и она не меняется.</span></div>
-        <div class="cost">от 25 000 ₽</div>
-      </li>
-      <li>
-        <div><b>Консультация «Разберёмся вместе»</b><span>Час-полтора, одна задача, вы уходите с результатом.</span></div>
-        <div class="cost">1 500–2 500 ₽</div>
-      </li>
-    </ul>
-    <p class="prices-note">Подключение платёжных систем появится в списке позже.</p>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="how">
-  <div class="shell">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">КАК РАБОТАЮ</p>
-        <h2 class="display">Четыре шага</h2>
+    <section class="section portfolio" id="portfolio">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Портфолио</p>
+            <h2 class="display">Не просто картинки, а решённые задачи</h2>
+          </div>
+          <div class="body-copy">
+            <p>В каждом примере важно не только, как выглядит результат, но и что было непонятно в начале, в чём я разобралась и что передала владельцу.</p>
+          </div>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <span class="case-tag">САЙТ И TELEGRAM MINI APP</span>
+            <h3>Цифровые инструменты для проекта Пети</h3>
+            <div class="case-fact">
+              <b>Задача</b>
+              <p>Запустить сайт без дорогой сложной разработки, а затем сделать мини-приложение в Telegram.</p>
+            </div>
+            <div class="case-fact">
+              <b>Что сделала</b>
+              <p>Помогла разобраться с публикацией сайта на GitHub Pages, сделала Telegram mini app и передала проект владельцу.</p>
+            </div>
+            <div class="case-fact">
+              <b>Результат</b>
+              <p>Сайт опубликован, приложение работает, владелец может разбираться с проектом дальше.</p>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <span class="case-tag">САЙТ ДЛЯ УСЛУГ</span>
+            <h3>Сайт агентства «Лазарева и Ко»</h3>
+            <div class="case-fact">
+              <b>Задача</b>
+              <p>Превратить идею нового агентства в понятную страницу с направлениями работы и способами обратиться.</p>
+            </div>
+            <div class="case-fact">
+              <b>Что сделала</b>
+              <p>Самостоятельно собрала структуру и тексты, оформила услуги, ответы на вопросы и контакты, опубликовала сайт.</p>
+            </div>
+            <div class="case-fact">
+              <b>Результат</b>
+              <p>У агентства есть работающий сайт, который можно отправлять потенциальным клиентам.</p>
+            </div>
+            <a class="case-link" href="https://mazhuchkova-blip.github.io/lazareva-co-variant-3/">Открыть сайт агентства →</a>
+          </article>
+
+          <article class="case-card">
+            <span class="case-tag">МОЙ ПРОЕКТ</span>
+            <h3>Telegram-канал «Марина Жучкова»</h3>
+            <div class="case-fact">
+              <b>О чём</b>
+              <p>О том, как ИИ и цифровые инструменты меняют работу и бизнес, — на собственных задачах и примерах.</p>
+            </div>
+            <div class="case-fact">
+              <b>Зачем здесь</b>
+              <p>В канале можно посмотреть, как я думаю, объясняю сложное и разбираю цифровые задачи на практике.</p>
+            </div>
+            <div class="case-fact">
+              <b>Важно</b>
+              <p>Сейчас описание канала ещё связано с диагностикой пути клиента. Его стоит обновить под новое позиционирование.</p>
+            </div>
+            <a class="case-link" href="https://t.me/ma_zhu_va">Открыть Telegram-канал →</a>
+          </article>
+        </div>
       </div>
-      <div class="body-copy"><p>Разбираться в терминах не нужно. Пишите своими словами, остальное беру на себя.</p></div>
-    </div>
-    <ol class="stage-list">
-      <li><b>Вы пишете задачу</b>В Telegram, как получится.</li>
-      <li><b>Я уточняю детали</b>Задаю вопросы, называю цену и срок.</li>
-      <li><b>Делаю или созваниваемся</b>Работаю сама или провожу вас по шагам на встрече.</li>
-      <li><b>Вы получаете результат</b>Всё работает, домен и аккаунты оформлены на вас.</li>
-    </ol>
-  </div>
-</section>
+    </section>
 
-<section class="section catalog" id="case">
-  <div class="shell">
-    <p class="eyebrow">КЕЙС</p>
-    <div class="case-card">
-      <h3>Сайт агентства «Лазарева и Ко»</h3>
-      <p>Собрала с нуля сайт для нового агентства: два направления клиентов, форматы работы с ценами, описание методики и ответы на частые вопросы. Тексты и структуру писала под продажу услуг.</p>
-      <p>Месяц назад у агентства была только идея. Сейчас есть название, продукты, цены и сайт.</p>
-      <p class="soon">Остальные кейсы добавлю, когда клиенты разрешат их показать.</p>
-    </div>
-  </div>
-</section>
+    <section class="section" id="about">
+      <div class="shell about-grid">
+        <div class="about-mark" aria-hidden="true">Марина,<br>разберись</div>
+        <div class="about-copy">
+          <p class="eyebrow">Обо мне</p>
+          <h2 class="display">Мне нравится превращать непонятное в работающее</h2>
+          <div class="body-copy">
+            <p>Я Марина Жучкова. Мне интересно разбираться в новых инструментах, проверять их на практике и находить способ, который подходит конкретному человеку и его задаче.</p>
+            <p>Я не жду, что вы придёте с техническим заданием. Можно начать с идеи, проблемы или фразы «хочу вот так, но не знаю как».</p>
+          </div>
+          <ul class="about-principles">
+            <li>Не усложняю решение ради сложности.</li>
+            <li>Объясняю обычными словами.</li>
+            <li>Довожу до состояния «открывается и работает».</li>
+            <li>Оформляю аккаунты и доступы на владельца проекта.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section class="section audit" id="audit">
-  <div class="shell audit-grid">
-    <div>
-      <p class="eyebrow">ОТДЕЛЬНАЯ УСЛУГА</p>
-      <h2 class="display">Где вы теряете клиентов</h2>
-      <div class="body-copy"><p>Прохожу путь клиента от поиска до записи: карты, сайт, отзывы, ответы нейросетей. Каждая находка идёт со скриншотом, в конце получаете план исправлений по приоритету.</p></div>
-      <a class="text-link" href="audit.html">Подробнее о диагностике</a>
-    </div>
-    <ul class="audit-prices">
-      <li><span>Экспресс-разбор, до 5 дней</span><strong>9 900 ₽</strong></li>
-      <li><span>Диагностика с созвоном, до 10 дней</span><strong>29 900 ₽</strong></li>
-      <li><span>Исправления под ключ</span><strong>по договорённости</strong></li>
-    </ul>
-  </div>
-</section>
+    <section class="section faq" id="faq">
+      <div class="shell faq-grid">
+        <div>
+          <p class="eyebrow">Вопросы</p>
+          <h2 class="display">До первого сообщения</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Что написать, если я не знаю терминов?</summary>
+            <p>Опишите, что хотите получить и что должно уметь готовое решение. Можно приложить пример, который вам нравится. Нужные вопросы я задам сама.</p>
+          </details>
+          <details>
+            <summary>Вы возьмётесь за любую задачу?</summary>
+            <p>Нет. Сначала я разберусь, хватает ли мне знаний и времени. Если задача не моя, скажу об этом до начала работы.</p>
+          </details>
+          <details>
+            <summary>Можно не отдавать задачу целиком?</summary>
+            <p>Да. Мы можем сделать её вместе или провести встречу, на которой вы всё сделаете сами с моей помощью.</p>
+          </details>
+          <details>
+            <summary>На кого оформляются домен и аккаунты?</summary>
+            <p>На вас. Вы остаётесь владельцем проекта и сервисов. На время работы вы даёте мне только необходимые доступы.</p>
+          </details>
+          <details>
+            <summary>Как понять стоимость и срок?</summary>
+            <p>После короткого обсуждения я фиксирую, что именно нужно сделать, называю стоимость и срок. Если по ходу работы появляется новая задача, мы обсуждаем её отдельно.</p>
+          </details>
+          <details>
+            <summary>Вы выдаёте чек?</summary>
+            <p>Да. Я работаю как самозанятая и выдаю чек.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-<section class="section faq" id="faq">
-  <div class="shell faq-grid">
-    <div>
-      <p class="eyebrow">ВОПРОСЫ</p>
-      <h2 class="display">Частые вопросы</h2>
-    </div>
-    <div class="faq-list">
-      <details>
-        <summary>На кого оформляются домен и аккаунты?</summary>
-        <p>На вас. Вы владелец и платите регистратору напрямую. Пока идёт работа, я пользуюсь доступами, которые вы даёте.</p>
-      </details>
-      <details>
-        <summary>Нужно ли разбираться в технике?</summary>
-        <p>Нет. Сложное беру на себя или объясняю по шагам простыми словами.</p>
-      </details>
-      <details>
-        <summary>Вы подключаете платёжные системы?</summary>
-        <p>Пока не берусь. Сначала подключу оплату на своём проекте, потом добавлю её в список услуг.</p>
-      </details>
-      <details>
-        <summary>Моей задачи нет в списке. Что делать?</summary>
-        <p>Напишите, что нужно. Скажу, возьмусь ли и сколько это стоит. Если не смогу помочь, скажу сразу.</p>
-      </details>
-      <details>
-        <summary>Можно просто посоветоваться?</summary>
-        <p>Можно. Для этого есть формат «Разберёмся вместе»: созвон на 60–90 минут по одной задаче.</p>
-      </details>
-      <details>
-        <summary>Вы выдаёте чек?</summary>
-        <p>Да. Я работаю как самозанятая и выдаю чек.</p>
-      </details>
-    </div>
-  </div>
-</section>
+    <section class="section contacts" id="contacts">
+      <div class="shell contact-grid">
+        <div>
+          <p class="eyebrow">С чего начать</p>
+          <h2 class="display">Расскажите, что хотите сделать</h2>
+          <div class="body-copy">
+            <p>Напишите в Telegram своими словами. Я задам вопросы и скажу, смогу ли помочь и какой формат подойдёт.</p>
+          </div>
+        </div>
+        <div class="contact-list">
+          <a class="main" href="https://t.me/marinaz_va"><b>ЛИЧНЫЙ TELEGRAM</b>@marinaz_va</a>
+          <a href="https://t.me/ma_zhu_va"><b>TELEGRAM-КАНАЛ</b>@ma_zhu_va</a>
+          <a href="mailto:ma.zhuc@yandex.ru"><b>ПОЧТА</b>ma.zhuc@yandex.ru</a>
+          <a href="tel:+79162145184"><b>ТЕЛЕФОН</b>+7 916 214-51-84</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section class="section contacts" id="contacts">
-  <div class="shell contact-grid">
-    <div>
-      <p class="eyebrow">КОНТАКТЫ</p>
-      <h2 class="display">Опишите задачу</h2>
-      <div class="body-copy"><p>Лучше всего писать в личный Telegram. Расскажите своими словами, что нужно, я отвечу и скажу, как буду делать.</p></div>
+  <footer>
+    <div class="shell footer-row">
+      <span>Марина Жучкова, самозанятая, ИНН 772479852132</span>
+      <a href="https://t.me/marinaz_va">Telegram: @marinaz_va</a>
+      <a href="mailto:ma.zhuc@yandex.ru">ma.zhuc@yandex.ru</a>
+      <span>© 2026</span>
     </div>
-    <div class="contact-list">
-      <a class="main" href="https://t.me/marinaz_va"><b>ЛИЧНЫЙ TELEGRAM</b>@marinaz_va</a>
-      <a href="https://t.me/ma_zhu_va"><b>TELEGRAM-КАНАЛ</b>@ma_zhu_va</a>
-      <a href="mailto:ma.zhuc@yandex.ru"><b>ПОЧТА</b>ma.zhuc@yandex.ru</a>
-      <a href="tel:+79162145184"><b>ТЕЛЕФОН</b>+7 916 214-51-84</a>
-    </div>
-  </div>
-</section>
+  </footer>
 
-</main>
+  <script>
+    (function () {
+      var header = document.getElementById('header');
+      var nav = document.getElementById('nav');
+      var toggle = document.getElementById('menuToggle');
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.situation-tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.situation-panel'));
 
-<footer>
-  <div class="shell footer-row">
-    <span>Марина Жучкова, самозанятая, ИНН 772479852132</span>
-    <a href="https://t.me/marinaz_va">Telegram: @marinaz_va</a>
-    <a href="mailto:ma.zhuc@yandex.ru">ma.zhuc@yandex.ru</a>
-    <span>© 2026</span>
-  </div>
-</footer>
+      function onScroll() {
+        header.classList.toggle('is-scrolled', window.scrollY > 10);
+      }
 
-<script>
-(function(){
-  var header=document.getElementById('header');
-  var nav=document.getElementById('nav');
-  var toggle=document.getElementById('menuToggle');
-  function onScroll(){header.classList.toggle('is-scrolled',window.scrollY>10)}
-  onScroll();
-  window.addEventListener('scroll',onScroll,{passive:true});
-  toggle.addEventListener('click',function(){
-    var open=nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded',open?'true':'false');
-  });
-  nav.addEventListener('click',function(e){
-    if(e.target.tagName==='A'){nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false')}
-  });
-})();
-</script>
+      function selectTab(tab) {
+        tabs.forEach(function (item) {
+          item.setAttribute('aria-selected', item === tab ? 'true' : 'false');
+        });
+        panels.forEach(function (panel) {
+          panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+        });
+      }
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive:true });
+
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      nav.addEventListener('click', function (event) {
+        if (event.target.tagName === 'A') {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () { selectTab(tab); });
+        tab.addEventListener('keydown', function (event) {
+          if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+          event.preventDefault();
+          var next = event.key === 'ArrowDown' ? index + 1 : index - 1;
+          var target = tabs[(next + tabs.length) % tabs.length];
+          target.focus();
+          selectTab(target);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
